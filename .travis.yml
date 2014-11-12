@@ -2,7 +2,8 @@ language: node_js
 
 node_js:
 - '0.10'
-
+before_script: 
+- mysql -ushippable -e "show variables like '%version';"
 
 after_script:
 - "./node_modules/gulp/bin/gulp.js coveralls"
